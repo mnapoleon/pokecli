@@ -1,0 +1,4 @@
+click
+pokemontcgsdk
+setuptools
+pytest
