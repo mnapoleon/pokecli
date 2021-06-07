@@ -20,7 +20,7 @@ def cli():
 def sets(set_id, set_name, series):
     """Returns all sets given the specified options."""
     if (set_id):
-       find_set(set_id)
+       format_set_info(find_set(set_id))
     else:
         params = build_up_set_params(set_name, series)
         print(params)
@@ -36,7 +36,7 @@ def sets(set_id, set_name, series):
 def find_set(set_id):
     try:
         pset = Set.find(set_id)
-        format_set_info(pset)    
+        return pset
     except PokemonTcgException:
         click.echo(f"No set found with id {set_id}.")   
 
