@@ -1,6 +1,6 @@
 import unittest
 from click.testing import CliRunner
-from pokecli import pokecli
+from pokecli.pokecli import pokecli
 from unittest.mock import Mock, patch
 
 class TestCli(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestCli(unittest.TestCase):
 
     def test_pokecli_rarity(self):
         runner = CliRunner()
-        with patch('pokecli.pokecli.find_rarities', return_value=['Rare','Common','Uncommon']) :
+        with patch('pokecli.find_rarities', return_value=['Rare','Common','Uncommon']) :
             result = self.runner.invoke(pokecli.cli, ['rarity'])
             assert result.exit_code == 0
             print (result.output)
